@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2AAD6523-CBC8-2D5D-878E-DFA5C27CDDFD}</ProjectGuid>
+    <ProjectGuid>{B2D3C9BD-93D3-9985-E80C-526886709AB8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Skripts\BeamHolder.cs" />
     <Compile Include="Assets\Skripts\ButtonController.cs" />
+    <Compile Include="Assets\Skripts\Buttons.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

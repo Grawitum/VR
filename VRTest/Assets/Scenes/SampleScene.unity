@@ -538,19 +538,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 255169115}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1195356732}
-        m_TargetAssemblyTypeName: BeamHolderTest.BeamHolder, Assembly-CSharp
-        m_MethodName: MoveHook
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 50
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &255169115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,15 +927,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1750744098738873362, guid: 849884d4f82d3834e8d8c2fd7727de47, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.8825746
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1750744098738873362, guid: 849884d4f82d3834e8d8c2fd7727de47, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.2192054
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1750744098738873362, guid: 849884d4f82d3834e8d8c2fd7727de47, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.9287357
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1750744098738873362, guid: 849884d4f82d3834e8d8c2fd7727de47, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1107,13 +1095,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0.99067664, z: -0.13623431, w: 0}
-  m_LocalPosition: {x: 8.9, y: 6.803, z: 14.344}
+  m_LocalRotation: {x: 0, y: 0.97297776, z: -0.23089886, w: 0}
+  m_LocalPosition: {x: -0.39, y: 1.2, z: 9.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 15.66, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 26.7, y: 180, z: 0}
 --- !u!1 &1009631054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,10 +1361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ffbeb7a224eea49b89058534b8a4cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _beamHolder: {fileID: 0}
-  _crane: {fileID: 0}
-  _hook: {fileID: 0}
-  _test: {fileID: 255169114}
 --- !u!1 &1343164576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,6 +1652,7 @@ GameObject:
   - component: {fileID: 1989309134}
   - component: {fileID: 1989309133}
   - component: {fileID: 1989309132}
+  - component: {fileID: 1989309136}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1761,6 +1746,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1989309136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989309131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70be6335dffc29b4c94951f3f220d41a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _up: {fileID: 0}
 --- !u!1 &2002497567
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,37 +1,108 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace BeamHolderTest
 {
     public class BeamHolder : MonoBehaviour
     {
-        [SerializeField] private GameObject _beamHolder;
-        [SerializeField] private GameObject _crane;
-        [SerializeField] private GameObject _hook;
+        private GameObject _beamHolder;
+        private const float _speedForwardBeamHolder = 1f;
+        private const float _speedBackBeamHolder = 1f;
+        private float _stopPointBeamHolder = 9.5f;
+
+        private GameObject _crane;
+        private const float _speedLeftCrane = 1f;
+        private const float _speedRightCrane = 1f;
+        private float _stopPointCrane = 50f;
+
+        private GameObject _hook;
+        private const float _speedUpHook = 0.5f;
+        private const float _speedDownHook = 1f;
+        private float _stopPointUpHook = 1.5f;
+        private float _stopPointDownHook = -4.1f;
+        private Vector3 _distanceToHook;
+        private float _scaleVire;
+
+        private const float _directionForward = 0.1f;
+        private const float _directionBack = -0.1f;
+
+        private GameObject _vire;
+        private const float _offsetVire = 0.7f;
+
 
         private void Awake()
         {
             _beamHolder = this.gameObject;
             _crane = this.transform.Find("Crane").gameObject;
-            _hook = _crane.transform.Find("Hook").gameObject;
+            _hook = _crane.transform.Find("Hook/hook_base").gameObject;
+            _vire = _crane.transform.Find("Hook/Wire_1").gameObject;
+            _distanceToHook = _crane.transform.position - _hook.transform.position;
+            _scaleVire = _distanceToHook.y / _vire.transform.localScale.y;
         }
 
-        public void MoveBeamHolder()
+        public void MoveForwardBeamHolder()  
         {
-            _beamHolder.transform.position = new Vector3(_beamHolder.transform.position.x, _beamHolder.transform.position.y, Mathf.Lerp(_beamHolder.transform.position.z, _beamHolder.transform.position.z + 1, 0.1f));
+            if (_beamHolder.transform.localPosition.z > -_stopPointBeamHolder)
+            {
+                MoveBeamHolder(_speedForwardBeamHolder, -_directionForward);
+            }
         }
 
-        public void MoveCrane()
+        public void MoveBackBeamHolder() 
         {
-            _crane.transform.position = new Vector3(Mathf.Lerp(_crane.transform.position.x, _crane.transform.position.x + 1, 0.1f), _crane.transform.position.y, _crane.transform.position.z);
+            if (_beamHolder.transform.localPosition.z <_stopPointBeamHolder)
+            {
+                MoveBeamHolder(_speedBackBeamHolder, -_directionBack);
+            }
         }
 
-        public void MoveHook(float m)
+        private void MoveBeamHolder(float speed, float directionOfTravel)
         {
-            _hook.transform.position = new Vector3(_hook.transform.position.x, Mathf.Lerp(_hook.transform.position.y, _hook.transform.position.y + m * 0.01f, 1), _hook.transform.position.z);
+            _beamHolder.transform.position = new Vector3(_beamHolder.transform.position.x, _beamHolder.transform.position.y, Mathf.Lerp(_beamHolder.transform.position.z, _beamHolder.transform.position.z + directionOfTravel, speed));
+        }
+
+        public void MoveLeftCrane() 
+        {
+            if (_crane.transform.localPosition.x < _stopPointCrane)
+            {
+                MoveCrane(_speedLeftCrane, _directionForward);
+            }
+        }
+
+        public void MoveRightCrane() 
+        {
+            if (_crane.transform.localPosition.x > -_stopPointCrane)
+            {
+                MoveCrane(_speedRightCrane, _directionBack);
+            }
+
+        }
+        private void MoveCrane(float speed, float directionOfTravel)
+        {
+            _crane.transform.position = new Vector3(Mathf.Lerp(_crane.transform.position.x, _crane.transform.position.x +directionOfTravel, speed), _crane.transform.position.y, _crane.transform.position.z);
+        }
+
+        public void MoveUpHook() 
+        {
+            if (_hook.transform.localPosition.y < _stopPointUpHook)
+            {
+                MoveHook(_speedUpHook, _directionForward);
+            }
+        }
+
+        public void MoveDownHook() 
+        {
+            if (_hook.transform.localPosition.y > _stopPointDownHook)
+            {
+                MoveHook(_speedDownHook, _directionBack);
+            }
+        }
+
+        private void MoveHook(float speed, float directionOfTravel)
+        {
+            _hook.transform.position = new Vector3(_hook.transform.position.x, Mathf.Lerp(_hook.transform.position.y, _hook.transform.position.y + directionOfTravel, speed), _hook.transform.position.z);
+            _distanceToHook = _crane.transform.position - _hook.transform.position;
+            _vire.transform.localScale = new Vector3(_vire.transform.localScale.x, _distanceToHook.y/ _scaleVire, _vire.transform.localScale.z);
+            _vire.transform.position = new Vector3(_vire.transform.position.x, -_distanceToHook.y / 2 + _offsetVire, _vire.transform.position.z);
         }
     }
 }
