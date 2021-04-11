@@ -5,20 +5,20 @@ namespace BeamHolderTest
     public class BeamHolder : MonoBehaviour
     {
         private GameObject _beamHolder;
-        private const float _speedForwardBeamHolder = 1f;
-        private const float _speedBackBeamHolder = 1f;
+        private const float _speedForwardBeamHolder = 0.1f;
+        private const float _speedBackBeamHolder = 0.1f;
         private float _stopPointBeamHolder = 9.5f;
 
         private GameObject _crane;
-        private const float _speedLeftCrane = 1f;
-        private const float _speedRightCrane = 1f;
+        private const float _speedLeftCrane = 0.1f;
+        private const float _speedRightCrane = 0.1f;
         private float _stopPointCrane = 50f;
 
         private GameObject _hook;
-        private const float _speedUpHook = 0.5f;
-        private const float _speedDownHook = 1f;
+        private const float _speedUpHook = 0.1f;
+        private const float _speedDownHook = 0.2f;
         private float _stopPointUpHook = 1.5f;
-        private float _stopPointDownHook = -4.1f;
+        private float _stopPointDownHook = -3.8f;
         private Vector3 _distanceToHook;
         private float _scaleVire;
 
