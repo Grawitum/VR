@@ -678,7 +678,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    1: VIU_PLUGIN;VIU_XR_GENERAL_SETTINGS;VIU_XR_PACKAGE_METADATA_STORE;VIU_OCULUSVR_DESKTOP_SUPPORT
+    1: VIU_PLUGIN;VIU_XR_GENERAL_SETTINGS;VIU_XR_PACKAGE_METADATA_STORE;VIU_OCULUSVR_DESKTOP_SUPPORT;VIU_SIUMULATOR_SUPPORT
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
