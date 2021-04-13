@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace BeamHolderTest
@@ -26,7 +24,6 @@ namespace BeamHolderTest
             }
         }
 
-        // Update is called once per frame
         public void Disconnect()
         {
             _isConnected = false;

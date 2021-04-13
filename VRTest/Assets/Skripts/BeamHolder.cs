@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace BeamHolderTest
 {
-    public class BeamHolder : MonoBehaviour
+    public sealed class BeamHolder : MonoBehaviour
     {
         private GameObject _beamHolder;
         private const float _speedForwardBeamHolder = 0.1f;
@@ -22,6 +22,10 @@ namespace BeamHolderTest
         private Vector3 _distanceToHook;
         private float _scaleVire;
 
+        private GameObject _tube;
+        private AudioSource _soundRotationTube;
+        private const float _speedRotationTube = 5;
+
         private const float _directionForward = 0.1f;
         private const float _directionBack = -0.1f;
 
@@ -35,6 +39,8 @@ namespace BeamHolderTest
             _crane = this.transform.Find("Crane").gameObject;
             _hook = _crane.transform.Find("Hook/hook_base").gameObject;
             _vire = _crane.transform.Find("Hook/Wire_1").gameObject;
+            _tube = this.transform.Find("Crane/Tube").gameObject;
+            _soundRotationTube = _tube.GetComponent<AudioSource>();
             _distanceToHook = _crane.transform.position - _hook.transform.position;
             _scaleVire = _distanceToHook.y / _vire.transform.localScale.y;
         }
@@ -103,6 +109,11 @@ namespace BeamHolderTest
             _distanceToHook = _crane.transform.position - _hook.transform.position;
             _vire.transform.localScale = new Vector3(_vire.transform.localScale.x, _distanceToHook.y/ _scaleVire, _vire.transform.localScale.z);
             _vire.transform.position = new Vector3(_vire.transform.position.x, -_distanceToHook.y / 2 + _offsetVire, _vire.transform.position.z);
+            if (!_soundRotationTube.isPlaying)
+            {
+                _soundRotationTube.Play();
+            }
+            _tube.transform.Rotate(directionOfTravel * _speedRotationTube, 0, 0);
         }
     }
 }

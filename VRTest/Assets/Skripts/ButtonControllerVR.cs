@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace BeamHolderTest
 {
     public class ButtonControllerVR : MonoBehaviour
     {
-        [SerializeField] private GameObject _up;
+        private GameObject _up;
         private GameObject _down;
         private GameObject _east;
         private GameObject _west;

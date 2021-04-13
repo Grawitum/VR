@@ -4,9 +4,9 @@ using System;
 
 namespace BeamHolderTest
 {
-    public class ButtonController : MonoBehaviour
+    public sealed class ButtonController : MonoBehaviour
     {
-        [SerializeField]private Button _up;
+        private Button _up;
         private Button _down;
         private Button _east;
         private Button _west;
